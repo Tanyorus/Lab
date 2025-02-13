@@ -19,20 +19,14 @@ public class lab9_3 {
     }
 }
     class IllegalTriangleException extends Exception {
-        private double Side1;
-        private double Side2;
-        private double Side3;
+        private final double Side1;
+        private final double Side2;
+        private final double Side3;
         public IllegalTriangleException(double Side1, double Side2, double Side3) throws IllegalTriangleException {
             this.Side1 = Side1;
             this.Side2 = Side2;
             this.Side3 = Side3;
-        if(Side1 + Side2 <= Side3 || Side2 + Side3 <= Side1 || Side1 + Side3 <= Side2)
-        {
-            throw new IllegalTriangleException(Side1, Side2, Side3);
         }
-    }
-
-
         public double getSide1(){
             return Side1;
         }
@@ -42,16 +36,13 @@ public class lab9_3 {
         public double getSide3(){
             return Side3;
         }
-        
-        
-        
     }
 
 
     class TriangleWithException extends Object{
-        private double Side1;
-        private double Side2;
-        private double Side3;
+        private final double Side1;
+        private final double Side2;
+        private final double Side3;
         
         public double getArea(){
             double s = (Side1 + Side2 + Side3) / 2;
@@ -68,8 +59,12 @@ public class lab9_3 {
             this.Side1 = Side1;
             this.Side2 = Side2;
             this.Side3 = Side3;
+            if(Side1 + Side2 <= Side3 || Side2 + Side3 <= Side1 || Side1 + Side3 <= Side2)
+        {
+            throw new IllegalTriangleException(Side1, Side2, Side3);
         }
-            
+
+        }  
     }
 
 
